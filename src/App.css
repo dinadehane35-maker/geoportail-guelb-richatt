@@ -1,0 +1,151 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; height: 100vh; }
+.app { display: flex; flex-direction: column; height: 100vh; }
+
+/* En-tête bleu comme le sujet */
+.header {
+  background: linear-gradient(135deg, #1565C0, #1976D2);
+  color: white;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.header-gauche { display: flex; align-items: center; gap: 12px; }
+.header-logo-cercle {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: bold; font-size: 14px;
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.header h1 { font-size: 16px; margin: 0; }
+.header small { font-size: 11px; opacity: 0.85; }
+.impadra-logo {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.corps { display: flex; flex: 1; overflow: hidden; }
+
+.panneau {
+  width: 275px;
+  background: #F5F5F5;
+  padding: 8px;
+  overflow-y: auto;
+  border-right: 2px solid #BBDEFB;
+}
+
+.section-titre {
+  background: linear-gradient(90deg, #1565C0, #1976D2);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 8px 0 6px 0;
+}
+
+.recherche-box { display: flex; gap: 5px; margin-bottom: 5px; }
+.recherche-box input {
+  flex: 1; padding: 6px 8px;
+  border: 1px solid #90CAF9;
+  border-radius: 5px; font-size: 12px;
+}
+.recherche-box button {
+  padding: 6px 10px;
+  background: #1565C0; color: white;
+  border: none; border-radius: 5px;
+  cursor: pointer; font-size: 12px;
+}
+
+.fonds-box { display: flex; flex-direction: column; gap: 4px; margin-bottom: 5px; }
+.fond-btn {
+  padding: 5px 8px; background: white;
+  border: 1px solid #90CAF9;
+  border-radius: 5px; cursor: pointer;
+  font-size: 12px; text-align: left;
+}
+.fond-btn:hover { background: #E3F2FD; }
+.fond-btn.actif { background: #1565C0; color: white; border-color: #0D47A1; }
+
+.outils-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px; margin-bottom: 6px;
+}
+.outil {
+  display: flex; flex-direction: column;
+  align-items: center; padding: 5px 2px;
+  background: white; border: 1px solid #90CAF9;
+  border-radius: 6px; cursor: pointer;
+  font-size: 15px; gap: 2px;
+}
+.outil span:last-child { font-size: 9px; color: #333; }
+.outil:hover { background: #E3F2FD; border-color: #1565C0; }
+.outil.actif { background: #1565C0; border-color: #0D47A1; }
+.outil.actif span { color: white; }
+
+.info-box {
+  margin: 6px 0; padding: 7px 10px;
+  background: #E3F2FD;
+  border-left: 4px solid #1565C0;
+  border-radius: 4px; font-size: 11px;
+  color: #0D47A1; word-break: break-all;
+}
+
+.couche-item {
+  margin-bottom: 5px; padding: 5px 7px;
+  background: white; border-radius: 5px;
+  border: 1px solid #E0E0E0;
+}
+.couche-item label {
+  display: flex; align-items: center;
+  gap: 7px; cursor: pointer; font-size: 12px;
+}
+.opacite-slider {
+  width: 100%; margin-top: 4px;
+  accent-color: #1565C0;
+}
+
+.carte-container {
+  flex: 1; display: flex;
+  flex-direction: column; position: relative;
+}
+.carte { flex: 1; }
+.coord-barre {
+  background: rgba(0,0,0,0.75);
+  color: #90CAF9;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-family: monospace;
+  text-align: center;
+}
+
+.modal-fond {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center;
+  justify-content: center; z-index: 9999;
+}
+.modal {
+  background: white; padding: 25px;
+  border-radius: 10px; max-width: 500px;
+  width: 90%; max-height: 80vh; overflow-y: auto;
+}
+.modal h3 { color: #1565C0; margin-bottom: 15px; }
+.modal p { margin-bottom: 8px; font-size: 14px; line-height: 1.5; }
+.modal table { width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 13px; }
+.modal th { background: #1565C0; color: white; padding: 8px; text-align: left; }
+.modal td { padding: 6px 8px; border-bottom: 1px solid #E0E0E0; }
+.modal tr:nth-child(even) td { background: #E3F2FD; }
+.modal button { margin-top: 10px; padding: 8px 20px; background: #1565C0; color: white; border: none; border-radius: 5px; cursor: pointer; }
+.modal button:hover { background: #0D47A1; }
