@@ -3,8 +3,7 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import './App.css'
 
-const GEOSERVER = 'http://localhost:8080/geoserver/guelb_richatt/wms'
-
+const GEOSERVER = 'https://happily-prone-bodacious.ngrok-free.dev/geoserver/guelb_richatt/wms'
 const FONDS = [
   { id: 'satellite', nom: '🛰️ Satellite', url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' },
   { id: 'osm', nom: '🗺️ OpenStreetMap', url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' },
