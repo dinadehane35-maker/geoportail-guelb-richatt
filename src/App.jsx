@@ -2,22 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import './App.css'
-// Fix ngrok header pour WMS
-L.TileLayer.WMSHeader = L.TileLayer.WMS.extend({
-  createTile: function(coords, done) {
-    const url = this.getTileUrl(coords);
-    const tile = document.createElement('img');
-    tile.setAttribute('crossOrigin', 'anonymous');
-    fetch(url, { headers: { 'ngrok-skip-browser-warning': 'true' } })
-      .then(r => r.blob())
-      .then(blob => { tile.src = URL.createObjectURL(blob); done(null, tile); })
-      .catch(e => done(e, tile));
-    return tile;
-  }
-});
-L.tileLayer.wmsHeader = (url, opts) => new L.TileLayer.WMSHeader(url, opts);
 
-const GEOSERVER = 'https://happily-prone-bodacious.ngrok-free.dev/geoserver/guelb_richatt/wms'
+
+const GEOSERVER = 'https://happily-prone-bodacious.ngrok-free.dev/geoserver/guelb_richatt/wms?ngrok-skip-browser-warning=true'
 const FONDS = [
   { id: 'satellite', nom: '🛰️ Satellite', url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' },
   { id: 'osm', nom: '🗺️ OpenStreetMap', url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' },
@@ -137,7 +124,7 @@ export default function App() {
 
     // Couches WMS
     COUCHES.forEach(c => {
-      const wms = L.tileLayer.wmsHeader(GEOSERVER, {
+      const wms = L.tileLayer.wms(GEOSERVER, {
         layers: c.layer,
         format: 'image/png',
         transparent: true,
