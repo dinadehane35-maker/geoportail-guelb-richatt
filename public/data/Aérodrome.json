@@ -1,0 +1,2 @@
+"json_build_object"
+"{""type"" : ""FeatureCollection"", ""features"" : [{""type"": ""Feature"", ""geometry"": {""type"":""Point"",""coordinates"":[-11.738906931,20.930574057]}, ""properties"": {""id"": 1, ""fid"": 8, ""type"": ""Aérodrome""}}]}"

@@ -1,0 +1,2 @@
+"json_build_object"
+"{""type"" : ""FeatureCollection"", ""features"" : [{""type"": ""Feature"", ""geometry"": {""type"":""MultiPolygon"",""coordinates"":[[[[-11.3,21.59],[-10.05,21.83],[-9.63,21.64],[-11.77,20.1],[-11.63,20.93],[-11.87,21.19],[-11.3,21.59]]]]}, ""properties"": {""id"": 1, ""fid"": 1, ""Surface"": null}}]}"
